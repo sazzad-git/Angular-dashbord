@@ -1,0 +1,473 @@
+<main class="main-container">
+  <section class="top-section">
+    <div class="profile">
+      <div class="image">
+        <img
+          src="https://angular-material.fusetheme.com/assets/images/avatars/brian-hughes.jpg"
+          alt=""
+        />
+      </div>
+      <div class="profile-heading">
+        <h1 id="title">Welcome back, Brian!</h1>
+        <p id="description">
+          <i class="fa-solid fa-bell"></i> You have 2 new messages and 15 new
+          tasks
+        </p>
+      </div>
+    </div>
+    <div class="btn-display">
+      <button class="btn">
+        <a class="anchor" id="magenta" href="#"
+          ><i class="fa-solid fa-envelope"></i> Messages</a
+        >
+      </button>
+      <button class="btn">
+        <a class="anchor" id="blue" href="#"
+          ><i class="fa-solid fa-gear"></i> Settings</a
+        >
+      </button>
+    </div>
+    <!-- <button>ACME Corp. Backend App</button> -->
+  </section>
+  <div>
+    <ul class="middle-btn">
+      <button class="top-btn-position">
+        ACME Corp. Backend App
+        <i id="bottom-arrow" class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <button
+        id="navigate-btn"
+        (click)="showContent('home')"
+        class="{{ buttonOne }}"
+      >
+        Home
+      </button>
+      <button
+        id="navigate-btn"
+        (click)="showContent('budget')"
+        class="{{ buttonTwo }}"
+      >
+        Budget
+      </button>
+      <button
+        id="navigate-btn"
+        (click)="showContent('team')"
+        class="{{ buttonThree }}"
+      >
+        Team
+      </button>
+    </ul>
+  </div>
+  <section *ngIf="home">
+    <section class="middle-section">
+      <div class="card-section">
+        <div class="card-body">
+          <div class="card-menu">
+            <h5 id="title">Summary</h5>
+            <button class="ellipsis">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </div>
+          <div class="card-middle">
+            <h1 class="number blue">21</h1>
+            <p class="blue" id="task">Due Tasks</p>
+            <p id="complete">Completed: 13</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="card-menu">
+            <h5 id="title">Overdue</h5>
+            <button class="ellipsis">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </div>
+          <div class="card-middle">
+            <h1 class="number red">17</h1>
+            <p class="red" id="task">Tasks</p>
+            <p id="complete">From Completed: 9</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-menu">
+            <h5 id="title">Issues</h5>
+            <button class="ellipsis">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </div>
+          <div class="card-middle">
+            <h1 class="number orange">24</h1>
+            <p class="orange" id="task">Open</p>
+            <p id="complete">Closed today: 19</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-menu">
+            <h5 id="title">Features</h5>
+            <button class="ellipsis">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </div>
+          <div class="card-middle">
+            <h1 class="number green">38</h1>
+            <p class="green" id="task">Proposals</p>
+            <p id="complete">Implemented: 16</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="summary">
+      <div class="top-banner">
+        <h3 class="top-title">Github Issues Summary</h3>
+        <div class="display-btn">
+          <button class="card-btn">Last week</button>
+          <button class="card-btn">This week</button>
+        </div>
+      </div>
+      <div class="display-grid">
+        <div>
+          <apx-chart
+            class="apex-chart"
+            [series]="series"
+            [chart]="chart"
+            [title]="title"
+            [legend]="legend"
+          ></apx-chart>
+        </div>
+        <div class="overview">
+          <p class="overview-title">Overview</p>
+          <div class="card grid-col-span-2">
+            <p class="number blue">214</p>
+            <p class="blue" id="task">New issue</p>
+          </div>
+          <div class="card grid-col-span-2">
+            <p class="number green">75</p>
+            <p class="green" id="task">Closed</p>
+          </div>
+          <div class="card">
+            <p class="second-number">3</p>
+            <p id="fix">Fixed</p>
+          </div>
+          <div class="card">
+            <p class="second-number">4</p>
+            <p id="fix">Won't fix</p>
+          </div>
+          <div class="card">
+            <p class="second-number">8</p>
+            <p id="fix">Re-opened</p>
+          </div>
+          <div class="card">
+            <p class="second-number">6</p>
+            <p id="fix">Needs triage</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bottom-section">
+      <div class="bottom-container">
+        <div class="top-banner">
+          <h3 class="top-title">Task Distribution</h3>
+          <div class="display-btn">
+            <button class="card-btn">Last week</button>
+            <button class="card-btn">This week</button>
+          </div>
+        </div>
+        <div>
+          <div class="bottom-chart">
+            <apx-chart
+              [series]="chartSeries"
+              [chart]="chartDetails"
+              [labels]="chartLabels"
+              [title]="chartTitle"
+              [dataLabels]="chartDataLabels"
+            ></apx-chart>
+          </div>
+          <div class="bottom-number">
+            <div class="center-align right-border">
+              <h1>594</h1>
+              <p>New tasks</p>
+            </div>
+            <div class="center-align">
+              <h1>287</h1>
+              <p>Completed tasks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-container">
+        <div class="top-banner">
+          <h3 class="top-title">Schedule</h3>
+          <div class="display-btn">
+            <button class="card-btn">Today</button>
+            <button class="card-btn">Tomorrow</button>
+          </div>
+        </div>
+        <div class="meeting">
+          <div>
+            <h3 id="meeting-title">Marketing Meeting</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 09:00 AM
+              <i class="fa-solid fa-location-dot"></i> Conference room 1A
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+        <div class="meeting">
+          <div>
+            <h3 id="meeting-title">Public Announcement</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 11:00 AM
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+        <div class="meeting">
+          <div>
+            <h3 id="meeting-title">Lunch</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 12:10 AM
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+        <div class="meeting">
+          <div>
+            <h3 id="meeting-title">Meeting with Beta Testers</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 03:00 PM
+              <i class="fa-solid fa-location-dot"></i> Conference room 2C
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+        <div class="meeting">
+          <div>
+            <h3 id="meeting-title">Live Stream</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 05:30 PM
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+        <div class="meeting">
+          <div>
+            <h3 id="meeting-title">Release Party</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 07:30 PM
+              <i class="fa-solid fa-location-dot"></i> CEO's house
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+        <div style="border: none" class="meeting">
+          <div>
+            <h3 id="meeting-title">CEO's Private Party</h3>
+            <p class="meeting-time">
+              <i class="fa-solid fa-clock"></i> 09:30 PM
+              <i class="fa-solid fa-location-dot"></i> CEO's Penthouse
+            </p>
+          </div>
+          <div>
+            <p class="right-array"><i class="fa-solid fa-angle-right"></i></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <div *ngIf="budget" class="second-content">
+    <div id="chart">
+      <!-- <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [title]="chartOptions.title"
+      ></apx-chart> -->
+    </div>
+  </div>
+  <div *ngIf="team" class="third-content">
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/female-10.jpg" alt="" />
+        <p id="first-child">Nadia Mcknight</p>
+        <p id="second-child">Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/male-19.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/male-14.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/male-02.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/female-20.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/female-03.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/male-01.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/female-02.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="top-area">
+        <img src="../../assets/female-01.jpg" alt="" />
+        <p>Nadia Mcknight</p>
+        <p>Project Director</p>
+      </div>
+      <div class="bottom">
+        <div class="mail">
+          <a href="#"
+            ><span><i class="fa-regular fa-envelope"></i></span> Email</a
+          >
+        </div>
+        <div class="call">
+          <a href="#"
+            ><span><i class="fa-solid fa-phone"></i></span> Call</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

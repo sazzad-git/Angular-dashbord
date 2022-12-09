@@ -1,0 +1,234 @@
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1044px;
+$desktopLg-width: 1444px;
+
+section {
+  display: flex;
+  // width: 100%;
+  flex-direction: row;
+  .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 1000px;
+    overflow-y: scroll;
+    background-color: rgb(15, 23, 42);
+    padding: 0 10px 0 0;
+    color: white;
+    width: 18%;
+    .notification {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      #bell {
+        margin-right: 10px;
+        border: 0;
+        background-color: #0f172a;
+        color: rgba(255, 255, 255, 0.477);
+        font-size: 20px;
+      }
+      #profile {
+        border: 0;
+        background-color: #0f172a;
+        color: rgba(255, 255, 255, 0.477);
+        font-size: 20px;
+      }
+    }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      #profile-image {
+        height: 120px;
+        border-radius: 60px;
+      }
+      #profile-title {
+        margin-bottom: 0;
+        font-weight: 500;
+      }
+      #mail {
+        margin-top: 8px;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+    .dashboard {
+      padding: 20px 0 0 25px;
+      #dashboard-title {
+        margin: 0;
+        font-size: 13px;
+        color: #728cf8;
+        font-weight: 600;
+      }
+      #dashboard-des {
+        margin-top: 0;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        list-style-type: none;
+        padding: 15px 10px;
+        border-radius: 10px;
+        &:hover {
+          background-color: rgb(44, 51, 68);
+          a {
+            color: white;
+          }
+        }
+      }
+      ul li a {
+        text-decoration: none;
+        color: rgb(201, 202, 205);
+        font-size: 17px;
+        font-weight: 500;
+      }
+      ul li i {
+        margin-right: 18px;
+        font-size: 18px;
+      }
+    }
+    .application {
+      padding: 20px 0 0 25px;
+      #application-title {
+        margin: 0;
+        font-size: 15px;
+        color: #728cf8;
+        font-weight: 600;
+      }
+      #application-describe {
+        margin-top: 0;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        list-style-type: none;
+        padding: 15px 10px;
+        border-radius: 10px;
+        &:hover {
+          background-color: rgb(44, 51, 68);
+          a {
+            color: white;
+          }
+        }
+      }
+      ul li a {
+        text-decoration: none;
+        color: rgb(201, 202, 205);
+        font-size: 17px;
+        font-weight: 500;
+      }
+      ul li i {
+        margin-right: 18px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .left::-webkit-scrollbar {
+    display: none;
+  }
+
+  .right {
+    width: 80%;
+    margin-left: 18%;
+  }
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 1rem 0 1rem;
+    margin: 0 auto;
+    border-bottom: 1px solid #606f8638;
+    #hamburger {
+      padding: 10px 0 0 20px;
+      font-size: 22px;
+      font-weight: 100;
+      color: #606f86;
+    }
+    .nav-items {
+      display: flex;
+      li {
+        list-style: none;
+        padding: 0 20px;
+        margin: 0 auto;
+      }
+      #flag {
+        color: rgba(255, 0, 102, 0.761);
+        font-size: 22px;
+      }
+      .li-items {
+        color: #606f86;
+        font-size: 22px;
+      }
+    }
+  }
+}
+.right::-webkit-scrollbar {
+  display: none;
+}
+
+/* 
+====================================
+  ****** For Mobile *********
+====================================
+*/
+@media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+  section {
+    .left {
+      display: none;
+    }
+    .right {
+      width: 100%;
+      margin-left: 0;
+      .main-nav {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        .nav-items {
+          li {
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+/*
+===============================
+  ****** For Tablet *********
+===============================
+*/
+@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  section {
+    .left {
+      display: none;
+    }
+    .right {
+      width: 100%;
+      margin-left: 0;
+      .main-nav {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        .nav-items {
+          li {
+            padding: 0 15px;
+          }
+        }
+      }
+    }
+  }
+}
+/* 
+==============================
+  ****** For laptop *********
+==============================
+*/
+@media (min-width: #{$desktop-width}) and (max-width: #{$desktopLg-width - 1px}) {
+}
